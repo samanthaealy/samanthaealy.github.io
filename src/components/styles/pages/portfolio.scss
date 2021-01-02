@@ -135,10 +135,10 @@
     cursor: pointer;
 
     @include portrait-phone {
-      width: 30px;
-      height: 30px;
-      top: 5px;
-      right: 5px;
+      width: 25px;
+      height: 25px;
+      top: 8px;
+      right: 8px;
     }
 
     .close {
@@ -148,8 +148,8 @@
       align-items: center;
 
       @include portrait-phone {
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
       }
 
       &:before, &:after {
