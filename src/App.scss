@@ -1,0 +1,121 @@
+@import './components/styles/variables.scss';
+@import './components/styles/media-queries.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.App {
+  background: $charcoal;
+  color: $pearl;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Catamaran', sans-serif;
+}
+
+h1 {
+  font-size: 56px;
+
+  @include desktop {
+    font-size: 42px;
+  }
+
+  @include tablet {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 36px;
+
+  @include tablet {
+    font-size: 30px;
+  }
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+
+  @include desktop {
+    font-size: 14px;
+  }
+}
+
+a, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+
+  li {
+    @include desktop {
+      font-size: 14px;
+    }
+  }
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  &-enter {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  
+  &-enter-active {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s, transform 1s;
+  }
+  
+  &-exit {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  &-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+}
+
+.main-container {
+  position: relative;
+  margin: 0 100px;
+
+  @include desktop {
+    margin: 0 75px;
+  }
+
+  @include tablet {
+    margin: 0 50px;
+  }
+
+  @include portrait-phone {
+    margin: 0 25px;
+  }
+}
+
+.anchor {
+  padding-top: 125px;
+  padding-bottom: 50px;
+}

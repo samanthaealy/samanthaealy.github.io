@@ -1,0 +1,104 @@
+@import '../variables.scss';
+@import '../media-queries.scss';
+
+#about {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "pic bio"
+    "skills bio";
+  column-gap: 50px;
+  row-gap: 50px;
+
+  @include tablet {
+    grid-template-areas: 
+      ". pic"
+      "bio bio"
+      "skills skills";
+  }
+
+  @include portrait-phone {
+    grid-template-areas: 
+      "pic pic"
+      "bio bio"
+      "skills skills";
+    row-gap: 50px;
+  }
+
+  .profile-wrapper {
+    grid-area: pic;
+
+    @include portrait-phone {
+      width: 50%;
+      margin: auto;
+    }
+
+    .profile {
+      width: 100%;
+      min-width: 100px;
+      display: block;
+      margin: auto;
+      border-radius: 25px;
+      box-shadow: 0px 20px 20px rgba(0,0,0,0.2), 0px 0px 50px rgba(0,0,0,0.2);
+    }  
+  }
+  
+  .bio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    grid-area: bio;
+    
+    & > p {
+      margin: 10px 0;
+      line-height: 28px;
+    }
+
+  }
+
+  .skills {
+    grid-area: skills;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    .skills-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      justify-content: space-between;
+
+      @include desktop {
+        grid-template-columns: repeat(2, auto);
+      }
+
+      @include tablet {
+        grid-template-columns: repeat(3, auto);
+      }
+
+      @include portrait-phone {
+        grid-template-columns: repeat(2, auto);
+      }
+
+      div {
+
+        li {
+          font-size: 12px;
+          padding: 2px 0;
+
+          &::before {
+            content: '>_';
+            color: $accent;
+            font-size: 12px;
+            font-weight: bolder;
+            padding-right: 5px;
+            mix-blend-mode: difference;
+          }
+        }
+      }
+    }
+  }
+}

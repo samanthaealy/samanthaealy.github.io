@@ -1,0 +1,442 @@
+@import '../variables.scss';
+@import '../media-queries.scss';
+
+.tile-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px 20px;
+  margin: auto;
+  padding: 10px 0;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portfolio-tile {
+  background-color: $charcoal;
+  border: 1px solid $charcoal;
+  border-radius: 5px;
+  box-shadow: 0px 20px 20px rgba(0,0,0,0.2), 0px 0px 50px rgba(0,0,0,0.2);
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $accent;
+
+    @include tablet {
+      border: 1px solid $charcoal;
+    }
+  }
+
+  .portfolio-wrap {
+    display: grid;
+    grid-template-rows: 1fr auto 2fr;
+    grid-row-gap: 10px;;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+
+    @include tablet {
+      grid-template-rows: auto auto 1fr;
+    }
+
+    .portfolio-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+  
+      .portfolio-subtitle {
+        font-size: 12px;
+      }
+
+    }
+
+    .portfolio-img-wrap {
+      padding: 50px 25px;
+      background-color: darken($charcoal, 2%);
+      border-radius: 10px;
+  
+      .portfolio-img {
+        display: block;
+        margin: auto;
+        width: 100%;
+        border-radius: 10px;
+      }
+  
+      &::after {
+        content: attr(data-category);
+        background-color: $accent;
+        color: $pearl;
+        font-size: 12px;
+        font-weight: bold;
+        max-width: calc((100%) - 60px);
+        position: relative;
+        top: 10px;
+        right: 0;
+        padding: 5px;
+        border-radius: 5px;
+        text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+      }
+    }
+    
+    .portfolio-desc {
+      font-size: 16px;
+      
+      .portfolio-brief {
+        line-height: 36px;
+      }
+      
+      .link-wrapper {
+        font-size: 24px;
+        display: none;
+
+        @include tablet {
+          color: $accent;
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 10px;
+        }
+
+        .fa {
+          transition: all 0.3s ease;
+          
+          &:hover {
+            color: $pearl;
+            transform: translateY(-5px);
+          }
+        }
+      }
+    }
+
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+
+.portfolio-tile.expanded {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1px solid $charcoal;
+  overflow-y: scroll;
+  z-index: 3;
+  cursor: auto;
+
+  .portfolio-close {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+
+    @include portrait-phone {
+      width: 30px;
+      height: 30px;
+      top: 5px;
+      right: 5px;
+    }
+
+    .close {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      align-items: center;
+
+      @include portrait-phone {
+        width: 30px;
+        height: 30px;
+      }
+
+      &:before, &:after {
+        content: '';
+        background-color: $pearl;
+        height: 3px;
+        transform: rotate(135deg);
+        grid-area: 1 / 1 / 2 / 2;
+        transition: all 0.3s ease;
+      }
+
+      &:after {
+        transform: rotate(225deg);
+      }
+
+      &:hover {
+
+        &:before {
+          transform: rotate(225deg);
+        }
+
+        &:after {
+          transform: rotate(135deg);
+        }
+      }
+
+      &:active {
+
+        &:before, &:after {
+          background-color: $accent;
+        }
+      }
+    }
+  }
+
+  .portfolio-details {
+    display: flex;
+    flex-direction: column;
+    margin: 25px 50px;
+
+    @include portrait-phone {
+      margin: 25px 40px;
+    }
+
+    .details-header {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding-top: 150px;
+  
+      .details-title {
+        font-size: 60px;
+
+        @include tablet {
+          font-size: 42px;
+        }
+
+        @include portrait-phone {
+          font-size: 32px;
+        }
+      }
+
+      .details-subtitle {
+        @include portrait-phone {
+          font-size: 20px;
+        }
+      }
+
+    }
+
+    .details-overview {
+      display: grid;
+      grid-template-columns: 250px auto;
+      column-gap: 25px;
+      justify-content: center;
+      align-items: center;
+      margin: 50px 0;
+
+      @include tablet {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+        row-gap: 10px;
+      }
+
+      .details-thumbnail {
+        position: relative;
+        width: 250px;
+        height: 250px;
+        overflow: hidden;
+        border-radius: 10px;
+
+        @include tablet {
+          margin: auto;
+        }
+
+        img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: auto;
+          height: 100%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      p {
+        font-style: italic;
+      }
+    }
+
+    
+  }
+
+  .details-content {
+
+    .details-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 650px;
+      margin: 30px auto;
+      
+      @include tablet {
+        width: 400px;
+      }
+
+      @include portrait-phone {
+        width: 100%;
+      }
+    }
+  
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  
+    p {
+      line-height: 30px;
+      margin: 10px 0;
+    }
+  
+    ul {
+      line-height: 30px;
+      margin-left: 40px;
+  
+      li {
+        list-style: circle;
+      }
+    }
+  
+    h3 {
+      margin-left: 20px;
+    }
+  
+    .gallery {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+
+      @include portrait-phone {
+        flex-direction: column;
+        padding: 0;
+      }
+  
+      img {
+        width: calc(30%);
+        height: auto;
+
+        @include portrait-phone {
+          width: 100%;
+          margin: 5px 0;
+        }
+      }
+    }
+  
+    code {
+      display: block;
+      background-color: darken($charcoal, 2%);
+      color: $accent;
+      font-size: 12px;
+      font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+      text-align: left;
+      border-radius: 10px;
+      padding: 0 10px;
+      white-space: pre-wrap;
+      position: relative;
+      word-break: normal;
+      word-wrap: normal;
+
+      @include portrait-phone {
+        font-size: 10px;
+      }
+    }
+  }
+
+  .details-visual {
+    img {
+      display: block;
+      margin: auto;
+      width: 550px;
+
+      @include tablet {
+        width: 250px;
+      }
+
+      @include portrait-phone {
+        width: 100%;
+      }
+    }  
+  }
+
+  .demo {
+    display: block;
+    margin: auto;
+    width: 30%;
+
+    @include tablet {
+      width: 50%;
+    }
+
+    @include portrait-phone {
+      width: 75%;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  table {
+    font-size: 10px;
+    border-collapse: collapse;
+
+    @include tablet {
+      font-size: 8px;
+    }
+    
+    thead th {
+      font-size: 12px;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      background: linear-gradient($sky, $mauve);
+      color: $pearl;
+      border-bottom:1px solid $punch;
+
+      @include tablet {
+        font-size: 10px;
+        padding: 5px;
+      }
+
+      @include portrait-phone {
+        font-size: 8px;
+      }
+
+      &:first-child {
+        border-top-left-radius: 10px; 
+       }
+     
+       &:last-child {
+         border-top-right-radius: 10px; 
+       }
+    }
+
+    td {
+      background-color: $pearl;
+      color: $charcoal;
+      padding: 10px;
+      border-bottom: 1px solid darken($pearl, 10%);
+
+      @include tablet {
+        padding: 4px;
+      }
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+
+      &:first-child {
+        border-bottom-left-radius: 10px;
+      }
+      &:last-child {
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import './variables.scss';
+@import './media-queries.scss';
+
+#loading {
+  width: 100vw;
+  height: 100vh;
+  background-color: $charcoal;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .loading-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .loading-text {
+      position: fixed;
+
+      @include tablet {
+        width: calc(250px/1.5);
+      }
+
+      @include landscape-phone {
+        width: calc(200px/1.5);
+      }
+    }
+
+    .loading-morph {
+      position: fixed;
+
+      @include tablet {
+        width: 250px;
+      }
+
+      @include landscape-phone {
+        width: 200px;
+      }
+    }
+  }
+}

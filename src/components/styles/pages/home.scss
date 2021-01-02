@@ -1,0 +1,81 @@
+@import '../variables.scss';
+@import '../media-queries.scss';
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+
+  @include landscape-phone {
+    height: auto;
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    .intro-line {
+      position: absolute;
+
+      div {
+        position: relative;
+        overflow: hidden;
+        width: 85%;
+
+        @include portrait-phone {
+          width: 100%;
+        }
+
+        .fade-up {
+          transform: translateY(100%);
+
+          .counter {
+            display: inline-block;
+            width: 120px;
+
+            @include desktop {
+              width: 90px;
+            }
+
+            @include tablet {
+              width: 70px;
+            }
+          }
+        }
+
+      }
+    }
+
+    .header-line {
+
+      div {
+        overflow: hidden;
+
+        .fade-down {
+          transform: translateY(-100%);
+
+          span {
+            display: block;
+          }
+        }
+
+        .shrink {
+          font-family: 'Catamaran', sans-serif;
+          font-size: 24px;
+          letter-spacing: 2px;
+          color: $bubblegum;
+
+          @include portrait-phone {
+            font-size: 20px;
+            color: $cloudy;
+          }
+        }
+      }
+    }
+  }
+}
+

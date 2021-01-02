@@ -1,0 +1,178 @@
+@import '../variables.scss';
+@import '../media-queries.scss';
+
+#contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  column-gap: 50px;
+  row-gap: 20px;
+  justify-content: center;
+  align-items: center;
+  grid-template-areas:
+    "header form"
+    "info form"
+    "social form";
+
+  @include tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:
+      "header"
+      "info"
+      "social"
+      "form";
+  }
+
+  .contact-header {
+    height: 100%;
+    grid-area: header;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    h2 {
+      font-size: 60px;
+
+      @include desktop {
+        font-size: 48px;
+      }
+    }
+  }
+
+  .contact-form {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    textarea {
+      min-height: 12em;
+      resize: none;
+    }
+
+    input, textarea {
+      width: 100%;
+      font-size: 1rem;
+      background-color: $charcoal;
+      color: $accent;
+      border: none;
+      padding: 30px;
+      box-shadow: 0px 20px 20px rgba(0,0,0,0.2), 0px 0px 50px rgba(0,0,0,0.2);
+    }
+    
+    input:focus, textarea:focus {
+      outline: 0;
+    }
+
+    input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+      font-size: 0.75em;
+      top: -5px;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    .form-group {
+      width: 100%;
+      margin: 1rem 0;
+      position: relative;
+
+      label {
+        color: $pearl;
+        font-size: 1em;
+        padding: 1.3rem 30px 1rem 30px;
+        position: absolute;
+        top: 10px;
+        left: 0;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+    }
+
+    .submit-btn {
+      width: 125px;
+      font-size: 18px;
+      background-color: $charcoal;
+      color: $pearl;
+      outline: none;
+      border: none;
+      padding: 8px;
+      border-radius: 20px;
+      box-shadow: 0px 20px 20px rgba(0,0,0,0.2), 0px 0px 50px rgba(0,0,0,0.2);
+      cursor: pointer;
+
+      &:hover {
+        color: $accent;
+      }
+
+      .submit-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+      }
+    }
+  }
+
+  .contact-info {
+    height: 100%;
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    line-height: 24px;
+
+    ul {
+      padding: 10px 0;
+    }
+
+    li {
+      width: fit-content;
+      border-bottom: 1px solid $pearl;
+    }
+  }
+
+  .social-media {
+    width: 200px;
+    height: 100%;
+    grid-area: social;
+
+    .social-links {
+      font-size: 1.5em;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      li {
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          color: $accent;
+        }
+      }
+
+      .fa {
+        @include desktop {
+          font-size: 2em;
+        }
+        
+      }
+
+      
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  font-size: 1rem;
+  box-shadow: 0px 20px 20px rgba(0,0,0,0.2), 0px 0px 50px rgba(0,0,0,0.2), 0 0 0 60px $charcoal inset !important;
+  -webkit-box-shadow: 0px 20px 20px rgba(0,0,0,0.2), 0px 0px 50px rgba(0,0,0,0.2), 0 0 0 60px $charcoal inset !important;
+  -webkit-text-fill-color: $accent !important;
+}
