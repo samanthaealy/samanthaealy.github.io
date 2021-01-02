@@ -24,7 +24,7 @@ const content = {
         <div class="details-thumbnail">
           <img src=${pantene} alt="Samantha Ealy holding Pantene bottle at Tabler Station plant"></img>
         </div>
-        <p>As a strategic collaborator, I perform data analysis to achieve sustainable results on the highest volume selling production line. Leading initiatives across 11 complex products, I engineer out chronic losses and perform root cause analysis to improve robot functionality.</p>
+        <p>Tabler Station is Procter & Gamble's largest multi-business unit production facility globally. As a strategic collaborator, I am responsible for engineering out chronic losses, performing data analysis, building technical capability, and optimizing work processes while supporting the start-up of Beauty Care's highest volume production line. Leading initiatives across 11 complex products, I have built a highly robust, multi-functional loss elimination cycle for the Pantene brand.</p>
       </div>
       <div class="details-content">
         <div class="details-group">
@@ -53,7 +53,7 @@ const content = {
         <div class="details-thumbnail">
           <img src=${team} alt="Fall 2018 CMU Engineering Computation Project Home Screen"></img>
         </div>
-        <p>aiPod is a Pasadena-based startup whose main objective is to sell urban mobility pilots to cities. Integrating city data and computer vision, we are able to relay information using sensors external from the vehicle. With this capability, we can minimize blind spots, detect parking availability, and reduce congestion. My main contribution to the team was creating a package for offboard sensors that would communicate with the vehicle to build a more holistic image of the traffic patterns</p>
+        <p>aiPod is a Pasadena-based startup whose main objective is to sell urban mobility pilots to cities. Integrating city data and computer vision, we are able to relay information using sensors external from the vehicle. With this capability, we can minimize blind spots, detect parking availability, and reduce congestion. My main contribution to the team was creating a package for offboard sensors that would communicate with the vehicle to build a more holistic image of the traffic patterns.</p>
       </div>
       <div class="details-content">
         <div class="details-group">
